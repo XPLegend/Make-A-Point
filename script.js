@@ -38,12 +38,19 @@ document.getElementById("drawing-box").addEventListener("mousemove", (event) => 
     //ottenere posizione relativa alla div
     let box = event.currentTarget;    //permette di selezionare solo le coordinate nella div
     let boxRect = box.getBoundingClientRect();   //ottiene le coordinate del punto nella div
-    mouseX = event.clientX;
-    mouseY = event.clientY;
+    mouseX = Math.round(event.clientX);
+    mouseY = Math.round(event.clientY);
 
-    document.getElementById("x-coords").innerText = `x:${mouseX - boxRect.left}`;
-    document.getElementById("y-coords").innerText = `y:${mouseY - boxRect.top}`;
-});
+    //Debug - con il border della DIV palette succedono bug di puntamento
+    let mousePositionX = mouseX - Math.round(boxRect.left);
+
+    if (mousePositionX >= 0) {
+        document.getElementById("x-coords").innerText = `x:${mousePositionX}`;
+        document.getElementById("y-coords").innerText = `y:${mouseY - Math.round(boxRect.top)}`;
+    } else {
+        document.getElementById("x-coords").innerText = `x:${0}`;
+        document.getElementById("y-coords").innerText = `y:${mouseY - Math.round(boxRect.top)}`;
+}});
 
 //creare switch per selezionare modalità di disegno o eliminazione
 
