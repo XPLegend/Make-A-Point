@@ -38,11 +38,11 @@ document.getElementById("drawing-box").addEventListener("mousemove", (event) => 
     //ottenere posizione relativa alla div
     let box = event.currentTarget;    //permette di selezionare solo le coordinate nella div
     let boxRect = box.getBoundingClientRect();   //ottiene le coordinate del punto nella div
-    mouseX = event.clientX - boxRect.left;
-    mouseY = event.clientY - boxRect.top;
+    mouseX = event.clientX;
+    mouseY = event.clientY;
 
-    document.getElementById("x-coords").innerText = `x:${mouseX}`;
-    document.getElementById("y-coords").innerText = `y:${mouseY - 10}`;
+    document.getElementById("x-coords").innerText = `x:${mouseX - boxRect.left}`;
+    document.getElementById("y-coords").innerText = `y:${mouseY - boxRect.top}`;
 });
 
 //creare switch per selezionare modalità di disegno o eliminazione
