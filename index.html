@@ -9,13 +9,12 @@
             }
 
             .figura{
-                border: 2px solid black;
                 border-radius: 100%;
                 width: 30px;
                 height: 30px;
                 background-color: blueviolet;
                 position: absolute;
-                z-index: -10;
+                z-index: 10;
                 transform: translate(-50%, -50%);
                 transition: opacity 0.5s ease-out;
             }
@@ -105,8 +104,8 @@
         <!--Color Palette-->
         <div id="button-container">
 
-            <button type="button" class="draw-erase" data-mode="draw"><b>DRAW</b></button>
-            <button type="button" class="draw-erase" data-mode="erase"><b>ERASE</b></button>
+            <button type="button" class="draw-erase" data-mode="draw" style="font-weight: bold;">DRAW</button>
+            <button type="button" class="draw-erase" data-mode="erase" style="font-weight: bold;">ERASE</button>
         </div>
         <!--Show coordinates-->
         <div id="coords-container">
@@ -118,27 +117,27 @@
     
     <div id="main-container">
         <div id="palette">
-            <button type="button" class="color-button" data-color="red" style="background-color: red;"></button>
-            <button type="button" class="color-button" data-color="orange" style="background-color: orange;"></button>
-            <button type="button" class="color-button" data-color="yellow" style="background-color: yellow;"></button>
-            <button type="button" class="color-button" data-color="darkblue" style="background-color: darkblue;"></button>
-            <button type="button" class="color-button" data-color="blue" style="background-color: blue;"></button>
-            <button type="button" class="color-button" data-color="lightblue" style="background-color: lightblue;"></button>
-            <button type="button" class="color-button" data-color="darkgreen" style="background-color: darkgreen;"></button>
-            <button type="button" class="color-button" data-color="green" style="background-color: green;"></button>
-            <button type="button" class="color-button" data-color="lightgreen" style="background-color: lightgreen;"></button>
-            <button type="button" class="color-button" data-color="black" style="background-color: black;"></button>
-            <button type="button" class="color-button" data-color="gray" style="background-color: gray;"></button>
-            <button type="button" class="color-button" data-color="white" style="background-color: white; border: 1px solid black;"></button>
-            <button type="button" class="color-button" data-color="purple" style="background-color: purple;"></button>
-            <button type="button" class="color-button" data-color="blueviolet" style="background-color: blueviolet;"></button>
-            <button type="button" class="color-button" data-color="magenta" style="background-color: magenta;"></button>
-            <button type="button" class="color-button" data-color="violet" style="background-color: violet;"></button>
-            <button type="button" class="color-button" data-color="pink" style="background-color: pink;"></button>
-            <button type="button" class="color-button" data-color="lightpink" style="background-color: lightpink;"></button>
-            <button type="button" class="color-button" data-color="maroon" style="background-color: maroon;"></button>
-            <button type="button" class="color-button" data-color="saddlebrown" style="background-color: saddlebrown;"></button>
-            <button type="button" class="color-button" data-color="sienna" style="background-color: sienna;"></button>
+            <button type="button" class="color-button" data-color="red" title="red" style="background-color: red;"></button>
+            <button type="button" class="color-button" data-color="orange" title="orange" style="background-color: orange;"></button>
+            <button type="button" class="color-button" data-color="yellow" title="yellow" style="background-color: yellow;"></button>
+            <button type="button" class="color-button" data-color="darkblue" title="darkblue" style="background-color: darkblue;"></button>
+            <button type="button" class="color-button" data-color="blue" title="blue" style="background-color: blue;"></button>
+            <button type="button" class="color-button" data-color="lightblue" title="lightblue" style="background-color: lightblue;"></button>
+            <button type="button" class="color-button" data-color="darkgreen" title="darkgreen" style="background-color: darkgreen;"></button>
+            <button type="button" class="color-button" data-color="green" title="green" style="background-color: green;"></button>
+            <button type="button" class="color-button" data-color="lightgreen" title="lightgreen" style="background-color: lightgreen;"></button>
+            <button type="button" class="color-button" data-color="black" title="black" style="background-color: black;"></button>
+            <button type="button" class="color-button" data-color="gray" title="gray" style="background-color: gray;"></button>
+            <button type="button" class="color-button" data-color="white" title="white" style="background-color: white; border: 1px solid black;"></button>
+            <button type="button" class="color-button" data-color="purple" title="purple" style="background-color: purple;"></button>
+            <button type="button" class="color-button" data-color="blueviolet" title="blueviolet" style="background-color: blueviolet;"></button>
+            <button type="button" class="color-button" data-color="magenta" title="magenta" style="background-color: magenta;"></button>
+            <button type="button" class="color-button" data-color="violet" title="violet" style="background-color: violet;"></button>
+            <button type="button" class="color-button" data-color="pink" title="pink" style="background-color: pink;"></button>
+            <button type="button" class="color-button" data-color="lightpink" title="lightpink" style="background-color: lightpink;"></button>
+            <button type="button" class="color-button" data-color="maroon" title="maroon" style="background-color: maroon;"></button>
+            <button type="button" class="color-button" data-color="saddlebrown" title="saddlebrown" style="background-color: saddlebrown;"></button>
+            <button type="button" class="color-button" data-color="sienna" title="sienna" style="background-color: sienna;"></button>
         </div>
         <div id="drawing-box"></div>
     </div>

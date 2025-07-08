@@ -19,17 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 //--------------------------------------------------------------------------------------------------------------------//
 //--------------------------------------------------------------------------------------------------------------------//
-
-//crea array coi bottoni e aggiungi listener per il colore
-let divColor = "blueviolet";  //default color
-
-const buttons = document.querySelectorAll(".color-button");
-buttons.forEach(button => {
-    button.addEventListener("click", function () {
-        const newColor = button.getAttribute("data-color");  
-        divColor = newColor;
-})});
-
 //esplicita coordinate mouse per universalizzarle e mostrale nella specifica box in nav
 let mouseX = 0;
 let mouseY = 0;
@@ -52,29 +41,55 @@ document.getElementById("drawing-box").addEventListener("mousemove", (event) => 
         document.getElementById("y-coords").innerText = `y:${mouseY - Math.round(boxRect.top)}`;
 }});
 
-//creare switch per selezionare modalità di disegno o eliminazione
 
-//modalità default = disegna
+//creare switch per selezionare modalità di disegno o eliminazione - modalità default = disegna
 let mode = "draw";
 
-const modeButtons = document.querySelectorAll(".draw-erase");
-modeButtons.forEach(button => { button.addEventListener("click", function () {mode = button.getAttribute("data-mode")})});
-
-document.getElementById("drawing-box").addEventListener("click", function (event) {
-   //ottenere posizione relativa alla div
-   let box = event.currentTarget;  //permette di selezionare solo le coordinate nella div
-
-   //crea la figura
-   let figure = document.createElement("div");
-   figure.classList.add("figura");
-
-    figure.style.left = `${mouseX}px`;
-    figure.style.top = `${mouseY}px`;
-    figure.style.backgroundColor = divColor;
-    
-   //spawna la figura
-   box.appendChild(figure);
+document.querySelectorAll(".draw-erase").forEach(button => {
+    button.addEventListener("click", function () {
+        mode = button.getAttribute("data-mode");
+        console.log("Modalità attuale:", mode);  //debug
+    });
 });
+
+//definisce la zona da disegno
+const box = document.getElementById("drawing-box");
+
+//switch ed esecuzione
+box.addEventListener("click", function(event) {
+    
+    if (mode === "draw") {
+        //aggiunge le figure ad una classList per la funzione erase
+        const figure = document.createElement("div");
+        
+        //definisce parametri della div
+        figure.classList.add("figura");
+        figure.style.left = `${mouseX}px`;
+        figure.style.top = `${mouseY}px`;
+        figure.style.backgroundColor = divColor;
+        
+        //crea la div
+        box.appendChild(figure);
+
+    } else if (mode === "erase") {
+        
+        // cancella solo se hai cliccato su una figura
+        if (event.target.classList.contains("figura")) {
+            event.target.remove();
+        } else {
+            console.log("Hai cliccato su uno sfondo, nessuna figura da cancellare."); //debug
+}}});
+
+
+//crea array coi bottoni e aggiungi listener per il colore
+let divColor = "blueviolet";  //default color
+
+const buttons = document.querySelectorAll(".color-button");
+buttons.forEach(button => {
+    button.addEventListener("click", function () {
+        const newColor = button.getAttribute("data-color");  
+        divColor = newColor;
+})});
 
 //scurisce il colore
 function darkenColor(rgb, percent) {
@@ -85,8 +100,8 @@ function darkenColor(rgb, percent) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
-//effetto ottico mouse hover
-document.querySelector("nav").addEventListener("mouseover", function (event) {
+//effetto mouse hover
+document.querySelector("body").addEventListener("mouseover", function (event) {
    let btn = event.target;  //ottiene il target
    //controlla se è un <button>
    if( btn.tagName === "BUTTON") {
