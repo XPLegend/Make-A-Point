@@ -51,12 +51,31 @@
             }
 
             .draw-erase {
-            width: auto; /* Permette al testo di adattarsi */
+            width: 32px; /* Permette al testo di adattarsi */
             padding: 0 10px; /* Aggiunge spazio laterale */
-            height: var(--prefixButtonSquare); /* Mantiene la stessa altezza degli altri */
+            height: 32px; /* Mantiene la stessa altezza degli altri */
             line-height: var(--prefixButtonSquare); /* Centra il testo verticalmente */
             font-size: 16px; /* Imposta un valore fisso */
             text-align: center; /* Centra il testo orizzontalmente */
+            background-size: cover;
+            }
+
+            #pencil{
+                background-image: url(Assets/pencil\ base.png);
+                background-position: center;
+                background-size: auto;
+            }
+
+            #circle{
+                background-image: url(Assets/circle\ tool.png);
+                background-position: center;
+                background-size: auto;
+            }
+
+            #eraser{
+                background-image: url(Assets/eraser.png);
+                background-position: center;
+                background-size: auto;
             }
 
             #main-container{
@@ -104,9 +123,9 @@
     <nav>
         <!--Color Palette-->
         <div id="button-container">
-            <button type="button" class="draw-erase" data-mode="pen" style="font-weight: bold;" title="pen">PEN</button>
-            <button type="button" class="draw-erase" data-mode="circle" style="font-weight: bold;" title="circle">CIRCLE</button>
-            <button type="button" class="draw-erase" data-mode="erase" style="font-weight: bold;" title="erase">ERASE</button>
+            <button type="button" class="draw-erase" id="pencil" data-mode="pen" title="pencil"></button>
+            <button type="button" class="draw-erase" id="circle" data-mode="circle" style="font-weight: bold;" title="circle"></button>
+            <button type="button" class="draw-erase" id="eraser" data-mode="erase" style="font-weight: bold;" title="erase"></button>
         </div>
         <!--Show coordinates-->
         <div id="coords-container">

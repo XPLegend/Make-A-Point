@@ -70,7 +70,7 @@ box.addEventListener("click", (event) => {
         //dichiara figura default
         const circle = document.createElement("div");
         //definisci parametri circle
-        circle.classList.add("cerchio");
+        circle.classList.add("cerchio"); //prende i parametri dalla classe dichiarata in CSS
         circle.style.left = `${mouseX}px`;
         circle.style.top = `${mouseY}px`;
         circle.style.backgroundColor = divColor;
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const yParagraph = document.getElementById("y");
 
     if (!mousePositionDiv || !xParagraph || !yParagraph) {
-        console.error("Elemento con ID 'mouse-position' non trovato.");
+        console.error("Elemento con ID 'mouse-position' non trovato."); //Errore in console - trascurare
         return;
     }
 
